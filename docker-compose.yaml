@@ -1,0 +1,23 @@
+version: '1.1'
+
+
+services:
+
+
+mongo: 
+image: mongo:5.0.3
+ports:
+  - 27017:27017
+environment:
+MONGO_INTITD_ROOT_USERNAME: development
+MONGO_INTITD_ROOT_PASSWORD: testapassword
+
+
+mongo-express:
+ ports:
+  - 8081:8081
+ environment:
+  ME_CONFIG_MONGO_INTITD_ROOT_USERNAME:
+  ME_MONGO_INTITD_ROOT_USERNAME:
+  ME_CONFIG_MONGODB_URL: mongodb://development:testapassword@mongo:27017/
+
